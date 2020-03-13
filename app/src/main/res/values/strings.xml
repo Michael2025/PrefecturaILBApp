@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PrefecturaILB</string>
+    <string name="action_lightTheme">Light Theme(Selected)</string>
+    <string name="action_DarkTheme">Dark Theme</string>
+
+    <string name="label_dialog_add">Añadir</string>
+    <string name="label_dialog_cancel">Cancelar</string>
+    <string name="label_dialog_delete">Eliminar</string>
+    <string name="from">from</string>
+    <string name="logoapp">logoApp</string>
+</resources>

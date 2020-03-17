@@ -7,4 +7,57 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btnSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:padding="8dp"
+        android:text="Iniciar Sesion"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtContra" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtContra"
+        style="@style/MyTheme.DayNight.TextInputLayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:hint="Contraseña"
+        app:endIconMode="password_toggle"
+        app:helperText="10 caracteres minimos"
+        app:layout_constraintBottom_toTopOf="@+id/btnSesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:maxLength="30" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtSesio"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Correo Electronico"
+        app:helperText="10 caracteres minimos"
+        app:layout_constraintBottom_toTopOf="@+id/txtContra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/MyTheme.DayNight.TextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtSesion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

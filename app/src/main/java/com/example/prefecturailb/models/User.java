@@ -3,25 +3,16 @@ package com.example.prefecturailb.models;
 import java.util.Objects;
 
 public class User {
-    private  String name;
     private String email;
     private String password;
 
     public User() {
     }
-    public User(String name, String email, String password) {
-        this.name = name;
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEmail() {
         return email;
@@ -44,13 +35,12 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return name.equals(user.name) &&
-                email.equals(user.email) &&
+        return  email.equals(user.email) &&
                 password.equals(user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, email, password);
+        return Objects.hash(email, password);
     }
 }

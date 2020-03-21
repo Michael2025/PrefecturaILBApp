@@ -8,4 +8,7 @@
     <string name="label_dialog_delete">Eliminar</string>
     <string name="from">from</string>
     <string name="logoapp">logoApp</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="pasw">Contraseña</string>
+    <string name="email">Correo Electronico</string>
 </resources>

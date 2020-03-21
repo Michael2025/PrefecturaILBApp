@@ -35,8 +35,7 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return  email.equals(user.email) &&
-                password.equals(user.password);
+        return  email.equals(user.email) && password.equals(user.password);
     }
 
     @Override

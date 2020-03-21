@@ -15,7 +15,7 @@
     <color name="color_surface">#ffffff</color><!--Modificar para modo obscuro-->
     <color name="color_error">#d50000</color>
 
-    <color name="color_on_primary">#000000</color>
+    <color name="color_on_primary">#ffffff</color>
     <color name="color_on_secondary">#ffffff</color>
 
     <color name="color_on_background">#000000</color><!--Modificar para modo obscuro-->

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1067133369550",
+    "firebase_url": "https://prefectura-ilb.firebaseio.com",
+    "project_id": "prefectura-ilb",
+    "storage_bucket": "prefectura-ilb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067133369550:android:f72c49ab9adad7f46e649f",
+        "android_client_info": {
+          "package_name": "com.example.prefecturailb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1067133369550-hqmcjuvhi7psdtjd4atdp8q464s9s781.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3J0ipRmOBZbS0M5ha-hA9DIawzdI4A84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067133369550-hqmcjuvhi7psdtjd4atdp8q464s9s781.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

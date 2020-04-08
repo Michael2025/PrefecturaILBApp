@@ -11,4 +11,10 @@
     <string name="iniciar_sesion">Iniciar Sesion</string>
     <string name="pasw">Contraseña</string>
     <string name="email">Correo Electronico</string>
+    <string name="splash_description">Splash screen</string>
+    <string name="error_connection">Ha ocurrido un error en la conexión</string>
+    <string name="error_email">El correo es incorrecto</string>
+    <string name="error_invalid_credencial">Usuario u contraseña Invalidos</string>
+    <string name="btn_sign_out">Sign Out</string>
+    <string name="error_no_register">Usuario no registrado</string>
 </resources>

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -32,18 +32,23 @@
     </style>
 
     <style name="itemLarge" parent="TextAppearance.MaterialComponents.Subtitle1">
-        <item name="maxLines">1</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
     <style name="itemMedium" parent="TextAppearance.MaterialComponents.Body2">
-        <item name="maxLines">2</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
     <!--Text Fields -->
-
     <style name="MyTheme.DayNight.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="android:layout_marginStart">@dimen/item_padding_horizontal</item>
         <item name="android:layout_marginEnd">@dimen/item_padding_horizontal</item>
         <item name="android:layout_marginTop">@dimen/item_padding_vertical</item>
     </style>
+    <!-- Splash -->
+    <style name="BaseSplash" parent="Base.MyTheme">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+        <item name="android:statusBarColor">?colorSecondary</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi" >false</item>
+        <item name="android:navigationBarColor">?colorSecondary</item>
+    </style>
+
 </resources>

@@ -9,8 +9,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * @author Jay Vega
+ */
 public class AccountActivity extends AppCompatActivity {
-
+    /**
+     * ButterKnife dependence.
+     */
     @BindView(R.id.btnSignOut)
     Button btnSignOut;
 
@@ -21,6 +26,9 @@ public class AccountActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
+    /**
+     * This method sign out of Firebase.
+     */
     public void signOut() {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(AccountActivity.this, MainActivity.class);
@@ -29,6 +37,9 @@ public class AccountActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btnSignOut)
+    /**
+     * This method set up the action of the signOut button.
+     */
     public void onViewClicked() {
         signOut();
     }

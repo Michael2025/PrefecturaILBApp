@@ -20,5 +20,5 @@
     <string name="helper_correo">Ingrese su correo electrónico</string>
     <string name="helper_password">Ingrese su contraseña</string>
     <string name="error_internet">Verifique su conexión de internet</string>
-    <string name="error_unknown">Error desconocido</string>
+    <string name="error_unknown">Imposible iniciar sesión en este momento, intente mas tarde.</string>
 </resources>

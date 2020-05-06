@@ -28,6 +28,13 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity implements LoginView {
 
 
+    private LoginPresenter mPresenter;
+    private LoginValidations mValidations;
+    /*
+     * ButterKnife Dependence.
+     */
+    @BindView(R.id.btnSignIn)
+    Button btnSignIn;
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
     @BindView(R.id.edPassword)
@@ -38,16 +45,9 @@ public class MainActivity extends AppCompatActivity implements LoginView {
     TextInputEditText edEmail;
     @BindView(R.id.tilEmail)
     TextInputLayout tilEmail;
-    @BindView(R.id.btnSignIn)
-    Button btnSignIn;
 
-    private LoginPresenter mPresenter;
-    private LoginValidations mValidations;
-    /**
-     * ButterKnife Dependence.
-     */
 
-    /**
+    /*
      * This method repairs the splash theme to default theme of the application.
      */
     private void configTheme() {
@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity implements LoginView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         configTheme();
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
         mPresenter = new LoginPresenterClass(this);
         mPresenter.onCreate();
         mPresenter.getStatusAuth();
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
         mValidations = new LoginValidations();
     }
 
@@ -86,8 +86,6 @@ public class MainActivity extends AppCompatActivity implements LoginView {
         super.onDestroy();
         mPresenter.onDestroy();
     }
-
-
     /**
      * This theme verify the EditTexts is not empty and verify the email format
      */
@@ -105,18 +103,18 @@ public class MainActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void disableUIComponents() {
-        final boolean flagDisable = false;
-        edEmail.setEnabled(flagDisable);
-        edPassword.setEnabled(flagDisable);
-        btnSignIn.setEnabled(flagDisable);
+        final boolean flag = false;
+        edEmail.setEnabled(flag);
+        edPassword.setEnabled(flag);
+        btnSignIn.setEnabled(flag);
     }
 
     @Override
     public void enableUIComponents() {
-        final boolean flagDisable = true;
-        edEmail.setEnabled(flagDisable);
-        edPassword.setEnabled(flagDisable);
-        btnSignIn.setEnabled(flagDisable);
+        final boolean flag = true;
+        edEmail.setEnabled(flag);
+        edPassword.setEnabled(flag);
+        btnSignIn.setEnabled(flag);
     }
 
     @Override

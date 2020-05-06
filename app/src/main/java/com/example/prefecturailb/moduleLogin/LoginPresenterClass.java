@@ -43,23 +43,15 @@ public class LoginPresenterClass implements LoginPresenter {
 
     @Override
     public void getStatusAuth() {
-    if (setProgress()){
         mInteractor.getStatusAuth();
     }
-    }
 
-    private boolean setProgress() {
-        if (mView!=null){
-            mView.showProgress();
-            return true;
-        }
-        return false;
-    }
 
     @Override
     public void signIn(User user) {
         if (mView!=null){
                 mView.disableUIComponents();
+                mView.showProgress();
                 mInteractor.signIn(user);
         }
     }
@@ -72,6 +64,7 @@ public class LoginPresenterClass implements LoginPresenter {
             switch (events.getType()){
                 case LoginEvents.LOGIN_AUTH_STATUS_SUCCESS:
                 case LoginEvents.LOGIN_SUCCESS:
+                    mView.hideProgress();
                     mView.openAccountActivity();
                     break;
                 case LoginEvents.LOGIN_NETWORK_ERROR:
@@ -79,6 +72,7 @@ public class LoginPresenterClass implements LoginPresenter {
                 case LoginEvents.LOGIN_EMAIL_ERROR:
                 case LoginEvents.LOGIN_USER_ERROR:
                 case LoginEvents.LOGIN_UNKNOWN:
+                    mView.hideProgress();
                     mView.enableUIComponents();
                     mView.onShowError(events.getResMsg());
                     break;

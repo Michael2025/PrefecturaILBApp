@@ -119,6 +119,14 @@ public class MainActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
+    public void enableUIComponents() {
+        final boolean flagDisable=true;
+        edEmail.setEnabled(flagDisable);
+        edPassword.setEnabled(flagDisable);
+        btnSignIn.setEnabled(flagDisable);
+    }
+
+    @Override
     public void openAccountActivity() {
         Intent intent =new Intent(MainActivity.this, AccountActivity.class);
         startActivity(intent);

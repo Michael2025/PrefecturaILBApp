@@ -79,6 +79,7 @@ public class LoginPresenterClass implements LoginPresenter {
                 case LoginEvents.LOGIN_EMAIL_ERROR:
                 case LoginEvents.LOGIN_USER_ERROR:
                 case LoginEvents.LOGIN_UNKNOWN:
+                    mView.enableUIComponents();
                     mView.onShowError(events.getResMsg());
                     break;
             }

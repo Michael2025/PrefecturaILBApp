@@ -5,7 +5,7 @@ public interface LoginView {
     void hideProgress();
 
     void disableUIComponents();
-
+    void enableUIComponents();
     void openAccountActivity();
 
     void onShowError(int resMsg);

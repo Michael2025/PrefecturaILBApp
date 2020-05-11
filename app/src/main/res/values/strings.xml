@@ -21,4 +21,6 @@
     <string name="helper_password">Ingrese su contraseña</string>
     <string name="error_internet">Verifique su conexión de internet</string>
     <string name="error_unknown">Imposible iniciar sesión en este momento, intente mas tarde.</string>
+    <string name="btn_busqueda">BÚSQUEDA</string>
+    <string name="btn_pasar_lista">PASAR LISTA</string>
 </resources>

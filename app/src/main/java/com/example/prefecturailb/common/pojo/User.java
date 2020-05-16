@@ -1,18 +1,29 @@
-package com.example.prefecturailb.models;
+package com.example.prefecturailb.common.pojo;
 
-import java.util.Objects;
+import com.google.firebase.database.Exclude;
+
 
 public class User {
+    public static final String EMAIL="email";
+
+
     private String email;
     private String password;
+    @Exclude
+    private String uid;
 
     public User() {
     }
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
 
+
+    @Exclude
+    public String getUid() {
+        return uid;
+    }
+    @Exclude
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getEmail() {
         return email;
@@ -33,13 +44,15 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
+
         User user = (User) o;
-        return  email.equals(user.email) && password.equals(user.password);
+
+        return uid != null ? uid.equals(user.uid) : user.uid == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, password);
+        return uid != null ? uid.hashCode() : 0;
     }
 }

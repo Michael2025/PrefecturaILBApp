@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.prefecturailb.AccountActivity;
+import com.example.prefecturailb.moduleAccount.view.AccountActivity;
 import com.example.prefecturailb.R;
 import com.example.prefecturailb.common.pojo.User;
 import com.example.prefecturailb.moduleLogin.LoginPresenter;

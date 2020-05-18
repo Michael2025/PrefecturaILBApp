@@ -45,6 +45,7 @@ dependencies {
     implementation "com.google.firebase:firebase-database:${firebaseDatabase}"
     implementation "com.google.firebase:firebase-auth:${firebaseAuth}"
     implementation "org.greenrobot:eventbus:${eventbusVersion}"
+    implementation  "com.getbase:floatingactionbutton:1.10.1"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
 
     testImplementation 'junit:junit:4.13'

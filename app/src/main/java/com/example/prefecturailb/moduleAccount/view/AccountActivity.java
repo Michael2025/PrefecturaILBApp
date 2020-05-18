@@ -26,8 +26,7 @@ import butterknife.ButterKnife;
 public class AccountActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.fab)
-    FloatingActionButton fab;
+
 
     /**
      * ButterKnife dependence.
@@ -70,4 +69,6 @@ public class AccountActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
 }

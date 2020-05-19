@@ -86,10 +86,6 @@ public class MainActivity extends AppCompatActivity implements LoginView {
         super.onDestroy();
         mPresenter.onDestroy();
     }
-    /**
-     * This theme verify the EditTexts is not empty and verify the email format
-     */
-
 
     @Override
     public void showProgress() {

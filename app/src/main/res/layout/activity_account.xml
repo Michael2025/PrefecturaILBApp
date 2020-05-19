@@ -18,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:menu="@menu/toolbar_menu"
             >
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
@@ -30,7 +29,8 @@
         android:layout_margin="@dimen/fab_margin"
         app:fab_addButtonColorNormal="@color/color_secondary"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab1"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             app:fab_icon="@drawable/ic_camera"
             app:fab_size="normal"
-            app:fab_addButtonColorNormal="@color/color_primary"
+            app:fab_colorNormal="@color/color_primary"
             app:fab_title="Boton 1"
             />
         <com.getbase.floatingactionbutton.FloatingActionButton
@@ -47,23 +47,18 @@
             android:layout_height="wrap_content"
             app:fab_icon="@drawable/ic_search"
             app:fab_size="normal"
-            app:fab_addButtonColorNormal="@color/color_primary"
+            app:fab_colorNormal="@color/color_primary"
             app:fab_title="Boton 2"
             />
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fab_icon="@android:drawable/ic_dialog_info"
+            app:fab_icon="@drawable/ic_power_settings_new_black_24dp"
             app:fab_size="normal"
             app:fab_colorNormal="@color/color_primary"
             app:fab_title="Boton 3"
             />
-
-
-
-
-
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 </androidx.constraintlayout.widget.ConstraintLayout>

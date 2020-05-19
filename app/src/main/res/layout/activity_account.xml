@@ -45,7 +45,7 @@
             android:id="@+id/fab2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fab_icon="@android:drawable/ic_dialog_info"
+            app:fab_icon="@drawable/ic_search"
             app:fab_size="normal"
             app:fab_addButtonColorNormal="@color/color_primary"
             app:fab_title="Boton 2"

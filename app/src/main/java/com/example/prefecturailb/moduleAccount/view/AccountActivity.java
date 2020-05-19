@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,11 +16,13 @@ import androidx.core.content.ContextCompat;
 import com.example.prefecturailb.R;
 import com.example.prefecturailb.moduleAccount.utils.Constants;
 import com.example.prefecturailb.moduleLogin.view.MainActivity;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.integration.android.IntentIntegrator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 //Franku estuvo aquí
 
 /**
@@ -32,6 +31,10 @@ import butterknife.ButterKnife;
 public class AccountActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.fab1)
+    FloatingActionButton fab1;
+    @BindView(R.id.fab3)
+    FloatingActionButton fab3;
 
 
     /**
@@ -47,24 +50,15 @@ public class AccountActivity extends AppCompatActivity {
         checkPermissionsToApp(Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.RC_CAMERA);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.toolbar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
+
+    @OnClick(R.id.fab1)
+    public void onViewClicked_SCAN() {
+        Toast.makeText(AccountActivity.this, "HOLA", Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.settings:
-                Toast.makeText(AccountActivity.this, "A FUTURO", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.log_out:
-                signOut();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
+    @OnClick(R.id.fab3)
+    public void onViewClicked_LOGOUT() {
+        signOut();
     }
 
     /**
@@ -91,7 +85,7 @@ public class AccountActivity extends AppCompatActivity {
         }
     }
 
-    private void openScan(){
+    private void openScan() {
         checkPermissionsToApp(Manifest.permission.WRITE_EXTERNAL_STORAGE, Constants.RC_CAMERA);
         IntentIntegrator intentIntegrator = new IntentIntegrator(AccountActivity.this);
         intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
@@ -100,4 +94,7 @@ public class AccountActivity extends AppCompatActivity {
         intentIntegrator.setBeepEnabled(true);
         intentIntegrator.initiateScan();
     }
+
+
+
 }

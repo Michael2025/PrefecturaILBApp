@@ -5,6 +5,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class FirebaseRealtimeDatabaseAPI {
     public static final String PATH_USER="user";
+    public static final String PATH_MAESTROS = "maestros";
 
     private DatabaseReference mDatabaseReference;
     private static class SingletonHolder{
@@ -21,6 +22,11 @@ public class FirebaseRealtimeDatabaseAPI {
     /*
     * References
     * */
+
+    public DatabaseReference getMaestroReference(){
+        return getRootReference().child(PATH_MAESTROS);
+    }
+
     public DatabaseReference getRootReference(){
         return mDatabaseReference.getRoot();
     }
@@ -29,4 +35,7 @@ public class FirebaseRealtimeDatabaseAPI {
         return  getRootReference().child(PATH_USER).child(uid);
     }
 
+    public DatabaseReference getMaestroReferenceMaename(String Maename){
+        return getMaestroReference().child(Maename);
+    }
 }

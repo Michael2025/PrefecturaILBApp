@@ -1,11 +1,14 @@
 package com.example.prefecturailb.moduleAccount.model;
 
+import com.example.prefecturailb.common.pojo.Maestro;
 import com.example.prefecturailb.moduleAccount.events.AccountEvents;
 import com.example.prefecturailb.moduleAccount.model.dataAccess.Authentication;
 import com.example.prefecturailb.moduleAccount.model.dataAccess.MaestrosEventListener;
 import com.example.prefecturailb.moduleAccount.model.dataAccess.RealTimeDataBase;
 
 import org.greenrobot.eventbus.EventBus;
+
+import java.util.ArrayList;
 
 public class AccountInteractorClass implements AccountInteractor{
 
@@ -17,20 +20,20 @@ public class AccountInteractorClass implements AccountInteractor{
         mrealTimeDataBase = new RealTimeDataBase();
     }
 
-    private void post(String name, int typeEvent, int resMsg){
+    private void post(Maestro maestro, int typeEvent, int resMsg){
         AccountEvents events = new AccountEvents();
         events.setMessage(resMsg);
         events.setTypeEvent(typeEvent);
-        events.setName(name);
+        events.setMaestro(maestro);
         EventBus.getDefault().post(events);
     }
 
-    private void post(String name, int typeEvent){
-        post(name, typeEvent, 0);
+    private void post(Maestro maestro, int typeEvent){
+        post(maestro, typeEvent, 0);
     }
 
     private void post(int typeEvent, int resMsg){
-        post("", typeEvent, resMsg);
+        post(null, typeEvent, resMsg);
     }
 
     @Override
@@ -42,18 +45,18 @@ public class AccountInteractorClass implements AccountInteractor{
     public void onSubscribeToMaestros() {
         mrealTimeDataBase.onSubscribeToMaestros(new MaestrosEventListener() {
             @Override
-            public void onChildAdd(String name, int typeEvent) {
-                post(name, typeEvent);
+            public void onChildAdd(Maestro maestro, int typeEvent) {
+                post(maestro, typeEvent);
             }
 
             @Override
-            public void onChildChange(String name, int typeEvent) {
-                post(name, typeEvent);
+            public void onChildChange(Maestro maestro, int typeEvent) {
+                post(maestro, typeEvent);
             }
 
             @Override
-            public void onChildRemove(String name, int typeEvent) {
-                post(name, typeEvent);
+            public void onChildRemove(Maestro maestro, int typeEvent) {
+                post(maestro, typeEvent);
             }
 
             @Override

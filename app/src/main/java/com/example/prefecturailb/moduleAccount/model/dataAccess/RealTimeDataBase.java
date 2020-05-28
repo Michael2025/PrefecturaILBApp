@@ -2,14 +2,20 @@ package com.example.prefecturailb.moduleAccount.model.dataAccess;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.solver.widgets.Snapshot;
 
 import com.example.prefecturailb.R;
 import com.example.prefecturailb.common.model.dataAccess.FirebaseRealtimeDatabaseAPI;
+import com.example.prefecturailb.common.pojo.Maestro;
 import com.example.prefecturailb.moduleAccount.events.AccountEvents;
 import com.example.prefecturailb.moduleAccount.model.dataAccess.MaestrosEventListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+
+import java.util.ArrayList;
 
 public class RealTimeDataBase {
 
@@ -23,12 +29,12 @@ public class RealTimeDataBase {
         mDatabaseAPI = FirebaseRealtimeDatabaseAPI.getInstance();
     }
 
-    private String getMaestroName(DataSnapshot dataSnapshot){
-        String name = "";
-        if (dataSnapshot != null){
-            name = dataSnapshot.getKey();
-        }
-        return name;
+    private Maestro getMaestroName(DataSnapshot dataSnapshot){
+        //ArrayList <Maestro> maestros = new ArrayList<Maestro>();
+
+            Maestro maestro = dataSnapshot.getValue(Maestro.class);
+
+        return maestro;
     }
 
     public void onSubscribeToMaestros(MaestrosEventListener listener){

@@ -1,6 +1,8 @@
 package com.example.prefecturailb.moduleAccount.view;
 
-import com.example.prefecturailb.common.pojo.User;
+import com.example.prefecturailb.common.pojo.Maestro;
+
+import java.util.ArrayList;
 
 public interface AccountView {
 
@@ -8,4 +10,5 @@ public interface AccountView {
     void checkPermissionsToApp();
     void onOpenLogin();
     void onError(int message);
+    void onGetList(Maestro maestro);
 }

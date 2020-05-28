@@ -1,11 +1,13 @@
 package com.example.prefecturailb.moduleAccount.model.dataAccess;
 
-import com.google.firebase.database.DataSnapshot;
+import com.example.prefecturailb.common.pojo.Maestro;
+
+import java.util.ArrayList;
 
 public interface MaestrosEventListener {
 
-    void onChildAdd(String name, int typeEvent);
-    void onChildChange(String name, int typeEvent);
-    void onChildRemove(String name, int typeEvent);
+    void onChildAdd(Maestro maestro, int typeEvent);
+    void onChildChange(Maestro maestro, int typeEvent);
+    void onChildRemove(Maestro maestro, int typeEvent);
     void onChildError(int resMsg, int typeEvent);
 }

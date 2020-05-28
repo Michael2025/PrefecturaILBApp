@@ -1,5 +1,9 @@
 package com.example.prefecturailb.moduleAccount.events;
 
+import com.example.prefecturailb.common.pojo.Maestro;
+
+import java.util.ArrayList;
+
 public class AccountEvents {
 
     public static final int SEARCH_SUCCEFULL = 0;
@@ -12,7 +16,7 @@ public class AccountEvents {
 
     private int typeEvent;
     private int message;
-    private String name;
+    private Maestro maestro;
 
     public AccountEvents(){
 
@@ -34,11 +38,11 @@ public class AccountEvents {
         this.message = message;
     }
 
-    public String getName() {
-        return name;
+    public Maestro getMaestro() {
+        return maestro;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMaestro(Maestro maestro) {
+        this.maestro = maestro;
     }
 }

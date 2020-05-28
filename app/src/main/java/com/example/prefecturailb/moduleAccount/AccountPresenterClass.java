@@ -14,7 +14,6 @@ public class AccountPresenterClass implements AccountPresenter{
 
     private AccountView mView;
     private AccountInteractor mInteractor;
-    private String name;
 
     public AccountPresenterClass (AccountView mView){
         this.mView = mView;
@@ -59,7 +58,7 @@ public class AccountPresenterClass implements AccountPresenter{
             case AccountEvents.ADD_SUCCEFULL:
             case AccountEvents.CHANGE_SUCCEFULL:
             case AccountEvents.REMOVE_SUCCEFULL:
-                name = events.getName();
+                mView.onGetList(events.getMaestro());
                 break;
             case AccountEvents.CONNECTION_ERROR:
             case AccountEvents.SEARCH_ERROR:

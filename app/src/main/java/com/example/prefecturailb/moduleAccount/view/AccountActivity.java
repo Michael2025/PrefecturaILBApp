@@ -12,15 +12,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prefecturailb.R;
+import com.example.prefecturailb.common.pojo.Maestro;
 import com.example.prefecturailb.moduleAccount.AccountPresenter;
 import com.example.prefecturailb.moduleAccount.AccountPresenterClass;
+import com.example.prefecturailb.moduleAccount.adapters.MaestrosAdapter;
+import com.example.prefecturailb.moduleAccount.adapters.OnItemClickListener;
 import com.example.prefecturailb.moduleAccount.utils.Constants;
 import com.example.prefecturailb.moduleLogin.view.MainActivity;
 import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.integration.android.IntentIntegrator;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,16 +36,18 @@ import butterknife.OnClick;
 /**
  * @author Jay Vega
  */
-public class AccountActivity extends AppCompatActivity implements AccountView{
+public class AccountActivity extends AppCompatActivity implements AccountView, OnItemClickListener {
     @BindView(R.id.toolbar)
     Toolbar toolbar;
     @BindView(R.id.fab1)
     FloatingActionButton fab1;
     @BindView(R.id.fab3)
     FloatingActionButton fab3;
+    @BindView(R.id.recyclerview)
+    RecyclerView recyclerview;
 
     private AccountPresenter mPresenter;
-
+    private MaestrosAdapter maestrosAdapter;
     /**
      * ButterKnife dependence.
      */
@@ -52,6 +60,19 @@ public class AccountActivity extends AppCompatActivity implements AccountView{
         mPresenter = new AccountPresenterClass(this);
         mPresenter.onCreate();
         setSupportActionBar(toolbar);
+    }
+
+    //Método de la interface OnItemClickListener
+    @Override
+    public void onItemClicked() {
+        //Intent intent = new Intent(AccountActivity.this, ActivityMaestro);
+    }
+
+    @Override
+    public void onGetList(Maestro maestro) {
+        maestrosAdapter = new MaestrosAdapter(new ArrayList<Maestro>(), this);
+        recyclerview.setLayoutManager(new LinearLayoutManager(this));
+        recyclerview.setAdapter(maestrosAdapter);
     }
 
     @Override
@@ -124,6 +145,7 @@ public class AccountActivity extends AppCompatActivity implements AccountView{
     public void onError(int message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
 
 
 }

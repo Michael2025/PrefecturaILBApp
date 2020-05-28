@@ -56,8 +56,6 @@ public class AccountPresenterClass implements AccountPresenter{
     public void onEvent(AccountEvents events) {
         switch (events.getTypeEvent()){
             case AccountEvents.ADD_SUCCEFULL:
-            case AccountEvents.CHANGE_SUCCEFULL:
-            case AccountEvents.REMOVE_SUCCEFULL:
                 mView.onGetList(events.getMaestro());
                 break;
             case AccountEvents.CONNECTION_ERROR:

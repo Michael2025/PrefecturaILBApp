@@ -69,8 +69,8 @@ public class AccountActivity extends AppCompatActivity implements AccountView, O
     }
 
     @Override
-    public void onGetList(Maestro maestro) {
-        maestrosAdapter = new MaestrosAdapter(new ArrayList<Maestro>(), this);
+    public void onGetList(ArrayList<Maestro> maestros) {
+        maestrosAdapter = new MaestrosAdapter( maestros, this);
         recyclerview.setLayoutManager(new LinearLayoutManager(this));
         recyclerview.setAdapter(maestrosAdapter);
     }

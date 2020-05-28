@@ -10,5 +10,5 @@ public interface AccountView {
     void checkPermissionsToApp();
     void onOpenLogin();
     void onError(int message);
-    void onGetList(Maestro maestro);
+    void onGetList(ArrayList<Maestro> maestros);
 }

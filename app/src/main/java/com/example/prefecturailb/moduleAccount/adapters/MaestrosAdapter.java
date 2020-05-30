@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.prefecturailb.R;
 import com.example.prefecturailb.common.pojo.Maestro;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -53,6 +54,10 @@ public class MaestrosAdapter extends RecyclerView.Adapter <MaestrosAdapter.ViewH
         return maestros.size();
     }
 
+    public void setMaestros(ArrayList<Maestro> maestros){
+        this.maestros=maestros;
+        notifyDataSetChanged();
+    }
     class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.tv_name)
         TextView tv_name;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@color/color_secondary"/>
+    <item android:drawable="@color/color_surface"/>
     <item>
-        <bitmap android:src="@drawable/books"   android:gravity="center"/>
+        <bitmap android:src="@drawable/books_v2"   android:gravity="center"/>
     </item>
 </layer-list>

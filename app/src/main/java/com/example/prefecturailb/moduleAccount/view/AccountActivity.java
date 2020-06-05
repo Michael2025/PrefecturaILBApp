@@ -59,7 +59,18 @@ public class AccountActivity extends AppCompatActivity implements AccountView, O
         ButterKnife.bind(this);
         mPresenter = new AccountPresenterClass(this);
         mPresenter.onCreate();
+        configAdapter();
+        configRecyclerView();
         setSupportActionBar(toolbar);
+    }
+
+    private void configRecyclerView() {
+        recyclerview.setLayoutManager(new LinearLayoutManager(this));
+        recyclerview.setAdapter(maestrosAdapter);
+    }
+
+    private void configAdapter() {
+        maestrosAdapter = new MaestrosAdapter( new ArrayList<Maestro>(), this);
     }
 
     //Método de la interface OnItemClickListener
@@ -69,10 +80,8 @@ public class AccountActivity extends AppCompatActivity implements AccountView, O
     }
 
     @Override
-    public void onGetList(Maestro maestro) {
-        maestrosAdapter = new MaestrosAdapter(new ArrayList<Maestro>(), this);
-        recyclerview.setLayoutManager(new LinearLayoutManager(this));
-        recyclerview.setAdapter(maestrosAdapter);
+    public void onGetList(ArrayList<Maestro> maestros) {
+        maestrosAdapter.setMaestros(maestros);
     }
 
     @Override

@@ -16,7 +16,7 @@ public class AccountEvents {
 
     private int typeEvent;
     private int message;
-    private Maestro maestro;
+    private ArrayList<Maestro> maestros;
 
     public AccountEvents(){
 
@@ -38,11 +38,11 @@ public class AccountEvents {
         this.message = message;
     }
 
-    public Maestro getMaestro() {
-        return maestro;
+    public ArrayList<Maestro> getMaestro() {
+        return maestros;
     }
 
-    public void setMaestro(Maestro maestro) {
-        this.maestro = maestro;
+    public void setMaestro(ArrayList<Maestro> maestros) {
+        this.maestros = maestros;
     }
 }

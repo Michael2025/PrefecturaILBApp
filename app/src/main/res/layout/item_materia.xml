@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_materias"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="@string/name_materia"
+        android:padding="8dp"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        style="@style/itemLarge"
+
+        />
+
+
+
+
+</com.google.android.material.card.MaterialCardView>

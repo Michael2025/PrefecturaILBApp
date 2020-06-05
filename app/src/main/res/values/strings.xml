@@ -25,4 +25,5 @@
     <string name="btn_pasar_lista">PASAR LISTA</string>
     <string name="menu_settings">Propiedades</string>
     <string name="menu_logout">Cerrar sesión</string>
+    <string name="name_materia">Nombre de la materia</string>
 </resources>

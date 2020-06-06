@@ -1,10 +1,12 @@
 package com.example.prefecturailb.moduleAccount.model;
 
 import com.example.prefecturailb.common.pojo.Maestro;
+import com.example.prefecturailb.common.pojo.User;
 import com.example.prefecturailb.moduleAccount.events.AccountEvents;
 import com.example.prefecturailb.moduleAccount.model.dataAccess.Authentication;
 import com.example.prefecturailb.moduleAccount.model.dataAccess.MaestrosEventListener;
 import com.example.prefecturailb.moduleAccount.model.dataAccess.RealTimeDataBase;
+import com.example.prefecturailb.moduleAccount.model.dataAccess.UserCallBack;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -12,43 +14,47 @@ import java.util.ArrayList;
 
 public class AccountInteractorClass implements AccountInteractor{
 
-    Authentication mauthentication;
-    RealTimeDataBase mrealTimeDataBase;
+    Authentication mAuthentication;
+    RealTimeDataBase mRealTimeDataBase;
 
     public AccountInteractorClass (){
-        mauthentication = new Authentication();
-        mrealTimeDataBase = new RealTimeDataBase();
+        mAuthentication = new Authentication();
+        mRealTimeDataBase = new RealTimeDataBase();
     }
 
-    private void post(ArrayList<Maestro> maestros, int typeEvent, int resMsg){
+    private void post(ArrayList<Maestro> maestros, int typeEvent, int resMsg, User user){
         AccountEvents events = new AccountEvents();
         events.setMessage(resMsg);
         events.setTypeEvent(typeEvent);
         events.setMaestro(maestros);
+        events.setUser(user);
         EventBus.getDefault().post(events);
     }
 
     private void post(ArrayList<Maestro> maestros, int typeEvent){
-        post(maestros, typeEvent, 0);
+        post(maestros, typeEvent, 0, null);
+    }
+
+    private void post(User user){
+        post(null,0, 0, user);
     }
 
     private void post(int typeEvent, int resMsg){
-        post(null, typeEvent, resMsg);
+        post(null, typeEvent, resMsg, null);
     }
 
     @Override
     public void signOut() {
-        mauthentication.signOut();
+        mAuthentication.signOut();
     }
 
     @Override
     public void onSubscribeToMaestros() {
-        mrealTimeDataBase.onSubscribeToMaestros(new MaestrosEventListener() {
+        mRealTimeDataBase.onSubscribeToMaestros(new MaestrosEventListener() {
             @Override
             public void onDataChange(ArrayList<Maestro> maestros, int typeEvent) {
                 post(maestros, typeEvent);
             }
-
 
             @Override
             public void onChildError(int resMsg, int typeEvent) {
@@ -59,6 +65,22 @@ public class AccountInteractorClass implements AccountInteractor{
 
     @Override
     public void onUnsubscribeToMaestros() {
-        mrealTimeDataBase.onUnsubscribeMaestros();
+        mRealTimeDataBase.onUnsubscribeMaestros();
+    }
+
+    @Override
+    public void getUserInfo(){
+        mRealTimeDataBase.getUserByEmail(mAuthentication.getUserEmail(), new UserCallBack() {
+            @Override
+            public void getUserByEmail(User user) {
+                post(user);
+            }
+
+            @Override
+            public void onError(int type, int resMsg) {
+                post(type, resMsg);
+            }
+        });
+        mAuthentication.getUserEmail();
     }
 }

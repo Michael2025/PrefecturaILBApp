@@ -9,4 +9,5 @@ public interface LoginInteractor {
     void getStatusAuth();
     void signIn(User user);
 
+
 }

@@ -14,6 +14,7 @@ public interface AccountPresenter {
     void onPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults);
     void signOut();
     void openScan();
+    void getUserInfo();
 
     void onEvent(AccountEvents events);
 

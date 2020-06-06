@@ -11,6 +11,7 @@ public class LoginEvents {
     public static final int LOGIN_CREDENTIAL_ERROR=102;
     public static final int LOGIN_USER_ERROR=103;
     public static final int LOGIN_UNKNOWN=104;
+    public static final int GET_USER_NETWORK_ERROR = 105;
 
     private FirebaseUser user;
 

@@ -58,11 +58,16 @@ public class AccountPresenterClass implements AccountPresenter{
             case AccountEvents.ADD_SUCCEFULL:
                 mView.onGetList(events.getMaestro());
                 break;
+            case AccountEvents.GET_USER_SUCCESFULL:
+                mView.onGetUserInfo(events.getUser());
+                break;
+            case AccountEvents.GET_USER_NETWORK_ERROR:
             case AccountEvents.CONNECTION_ERROR:
             case AccountEvents.SEARCH_ERROR:
             case AccountEvents.UNKOWN_ERROR:
                 mView.onError(events.getMessage());
                 break;
+
         }
     }
 
@@ -76,5 +81,10 @@ public class AccountPresenterClass implements AccountPresenter{
     public void openScan() {
         mView.checkPermissionsToApp();
         mView.openScan();
+    }
+
+    @Override
+    public void getUserInfo() {
+        mInteractor.getUserInfo();
     }
 }

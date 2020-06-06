@@ -7,7 +7,10 @@ public class User {
     public static final String EMAIL="email";
 
 
+    private String name;
     private String email;
+    private String type;
+    @Exclude
     private String password;
     @Exclude
     private String uid;
@@ -25,6 +28,14 @@ public class User {
         this.uid = uid;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -33,10 +44,20 @@ public class User {
         this.email = email;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Exclude
     public String getPassword() {
         return password;
     }
 
+    @Exclude
     public void setPassword(String password) {
         this.password = password;
     }
@@ -55,4 +76,6 @@ public class User {
     public int hashCode() {
         return uid != null ? uid.hashCode() : 0;
     }
+
+
 }

@@ -5,4 +5,5 @@ public interface AccountInteractor {
     void signOut();
     void onSubscribeToMaestros();
     void onUnsubscribeToMaestros();
+    void getUserInfo();
 }

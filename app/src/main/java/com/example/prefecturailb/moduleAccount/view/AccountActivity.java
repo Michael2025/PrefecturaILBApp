@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prefecturailb.R;
 import com.example.prefecturailb.common.pojo.Maestro;
+import com.example.prefecturailb.common.pojo.User;
 import com.example.prefecturailb.moduleAccount.AccountPresenter;
 import com.example.prefecturailb.moduleAccount.AccountPresenterClass;
 import com.example.prefecturailb.moduleAccount.adapters.MaestrosAdapter;
@@ -82,6 +83,13 @@ public class AccountActivity extends AppCompatActivity implements AccountView, O
     @Override
     public void onGetList(ArrayList<Maestro> maestros) {
         maestrosAdapter.setMaestros(maestros);
+    }
+
+    @Override
+    public void onGetUserInfo(User user) {
+        /*user.getEmail();
+        user.getName();
+        user.getType();*/// TODO: 05/06/2020 Guardar en alguna parte estos datos. 
     }
 
     @Override

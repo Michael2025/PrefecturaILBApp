@@ -12,5 +12,4 @@ public interface AccountView {
     void onOpenLogin();
     void onError(int message);
     void onGetList(ArrayList<Maestro> maestros);
-    void onGetUserInfo(User user);
 }

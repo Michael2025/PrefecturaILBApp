@@ -4,7 +4,10 @@ import com.google.firebase.database.Exclude;
 
 
 public class User {
+    public static final String NAME="name";
     public static final String EMAIL="email";
+    public static final String TYPE="type";
+
 
 
     private String name;

@@ -1,11 +1,19 @@
 package com.example.prefecturailb.moduleAccount;
 
-import androidx.annotation.NonNull;
+import android.content.Intent;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.example.prefecturailb.R;
+import com.example.prefecturailb.common.pojo.User;
 import com.example.prefecturailb.moduleAccount.events.AccountEvents;
 import com.example.prefecturailb.moduleAccount.model.AccountInteractor;
 import com.example.prefecturailb.moduleAccount.model.AccountInteractorClass;
 import com.example.prefecturailb.moduleAccount.view.AccountView;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -14,6 +22,7 @@ public class AccountPresenterClass implements AccountPresenter{
 
     private AccountView mView;
     private AccountInteractor mInteractor;
+    private User user;
 
     public AccountPresenterClass (AccountView mView){
         this.mView = mView;
@@ -51,6 +60,24 @@ public class AccountPresenterClass implements AccountPresenter{
 
     }
 
+    @Override
+    public void onResult(int requestCode, int resultCode, @Nullable Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+        if (result!= null){
+            String QR= result.getContents();
+            if (QR == null){
+                mView.onError(R.string.error_canceled);
+            }else {
+                try {
+                    String [] QrContent=QR.split(";");
+                    Log.e("QR",QrContent[0]+"  "+QrContent[1]);
+                } catch (Exception e) {
+                    Log.e("QR",e.getMessage());
+                }
+            }
+        }
+    }
+
     @Subscribe
     @Override
     public void onEvent(AccountEvents events) {
@@ -59,7 +86,7 @@ public class AccountPresenterClass implements AccountPresenter{
                 mView.onGetList(events.getMaestro());
                 break;
             case AccountEvents.GET_USER_SUCCESFULL:
-                mView.onGetUserInfo(events.getUser());
+                user=events.getUser();
                 break;
             case AccountEvents.GET_USER_NETWORK_ERROR:
             case AccountEvents.CONNECTION_ERROR:
@@ -67,7 +94,6 @@ public class AccountPresenterClass implements AccountPresenter{
             case AccountEvents.UNKOWN_ERROR:
                 mView.onError(events.getMessage());
                 break;
-
         }
     }
 
@@ -86,5 +112,10 @@ public class AccountPresenterClass implements AccountPresenter{
     @Override
     public void getUserInfo() {
         mInteractor.getUserInfo();
+    }
+
+    @Override
+    public User getInfo() {
+        return user;
     }
 }

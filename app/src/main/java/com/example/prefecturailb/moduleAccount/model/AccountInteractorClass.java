@@ -81,6 +81,5 @@ public class AccountInteractorClass implements AccountInteractor{
                 post(type, resMsg);
             }
         });
-        mAuthentication.getUserEmail();
     }
 }

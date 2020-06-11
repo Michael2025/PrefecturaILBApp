@@ -68,12 +68,8 @@ public class AccountPresenterClass implements AccountPresenter{
             if (QR == null){
                 mView.onError(R.string.error_canceled);
             }else {
-                try {
                     String [] QrContent=QR.split(";");
                     Log.e("QR",QrContent[0]+"  "+QrContent[1]);
-                } catch (Exception e) {
-                    Log.e("QR",e.getMessage());
-                }
             }
         }
     }

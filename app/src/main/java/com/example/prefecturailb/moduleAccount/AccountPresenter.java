@@ -20,8 +20,6 @@ public interface AccountPresenter {
     void signOut();
     void openScan();
     void getUserInfo();
-    User getInfo();
-
     void onEvent(AccountEvents events);
 
 

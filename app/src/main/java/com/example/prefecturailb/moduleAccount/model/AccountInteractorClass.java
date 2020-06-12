@@ -35,8 +35,8 @@ public class AccountInteractorClass implements AccountInteractor{
         post(maestros, typeEvent, 0, null);
     }
 
-    private void post(User user){
-        post(null,0, 0, user);
+    private void post(int type,User user){
+        post(null,type, 0, user);
     }
 
     private void post(int typeEvent, int resMsg){
@@ -72,8 +72,8 @@ public class AccountInteractorClass implements AccountInteractor{
     public void getUserInfo(){
         mRealTimeDataBase.getUserByEmail(mAuthentication.getUserEmail(), new UserCallBack() {
             @Override
-            public void getUserByEmail(User user) {
-                post(user);
+            public void getUserByEmail(int type, User user) {
+                post(type,user);
             }
 
             @Override

@@ -18,6 +18,10 @@ import com.google.zxing.integration.android.IntentResult;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class AccountPresenterClass implements AccountPresenter{
 
     private AccountView mView;
@@ -33,6 +37,7 @@ public class AccountPresenterClass implements AccountPresenter{
     @Override
     public void onCreate() {
         EventBus.getDefault().register(this);
+        mInteractor.getUserInfo();
     }
 
     @Override
@@ -62,16 +67,26 @@ public class AccountPresenterClass implements AccountPresenter{
 
     @Override
     public void onResult(int requestCode, int resultCode, @Nullable Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
-        if (result!= null){
-            String QR= result.getContents();
-            if (QR == null){
-                mView.onError(R.string.error_canceled);
-            }else {
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
+            if (result!= null){
+                String QR= result.getContents();
+                if (QR == null){
+                    mView.onError(R.string.error_canceled);
+                }else {
                     String [] QrContent=QR.split(";");
+                    String hora=new SimpleDateFormat("hh:mm:ss",Locale.getDefault()).format(new Date());
+                    String fecha=new SimpleDateFormat("dd-MM-yyyy",Locale.getDefault()).format(new Date());
+                    if (user!=null) {
+                    Log.e("Usuario",user.getType()+"  "+user.getName());
+                    Log.e("Hora",hora);
+                    Log.e("Fecha",fecha);
+                        // TODO: 11/06/2020 Hacer una consulta en la base de datos, y comparar si el maestro y el grupo es el mismo caragar la asistencia.
+                    }
                     Log.e("QR",QrContent[0]+"  "+QrContent[1]);
+                }
             }
-        }
+        //}
     }
 
     @Subscribe
@@ -110,8 +125,4 @@ public class AccountPresenterClass implements AccountPresenter{
         mInteractor.getUserInfo();
     }
 
-    @Override
-    public User getInfo() {
-        return user;
-    }
 }

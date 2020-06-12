@@ -26,4 +26,7 @@
     <string name="menu_settings">Propiedades</string>
     <string name="menu_logout">Cerrar sesión</string>
     <string name="name_materia">Nombre de la materia</string>
+    <string name="error_canceled">La operación ha sido cancelada.</string>
+    <string name="error_qr_format">Ha escaneado un QR con un formato incorrecto.</string>
+    <string name="user_success">Se han obtenido los datos del usuario.</string>
 </resources>

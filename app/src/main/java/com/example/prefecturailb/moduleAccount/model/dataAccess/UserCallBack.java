@@ -4,7 +4,7 @@ import com.example.prefecturailb.common.pojo.User;
 
 public interface UserCallBack {
 
-    void getUserByEmail(User user);
+    void getUserByEmail(int type, User user);
 
     void onError(int type, int resMsg);
 

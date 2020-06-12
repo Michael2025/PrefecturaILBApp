@@ -16,7 +16,8 @@
         tools:ignore="GoogleAppIndexingWarning" >
         <activity android:name=".moduleMateria.view.MateriaActivity" >
         </activity>
-        <activity android:name=".moduleAccount.view.AccountActivity" />
+        <activity android:name=".moduleAccount.view.AccountActivity"
+            android:screenOrientation="fullSensor"/>
         <activity
             android:name=".moduleLogin.view.MainActivity"
             android:theme="@style/Splash" >

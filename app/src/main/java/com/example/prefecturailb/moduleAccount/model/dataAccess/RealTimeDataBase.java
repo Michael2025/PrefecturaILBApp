@@ -70,11 +70,14 @@ public class RealTimeDataBase {
         userByEmail.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
-                if (user != null) {
-                    user.setUid(dataSnapshot.getKey());
-                    userCallBack.getUserByEmail(user);
+                for(DataSnapshot snapshot: dataSnapshot.getChildren() ){
+                    User user = snapshot.getValue(User.class);
+                    if (user != null) {
+                        user.setUid(dataSnapshot.getKey());
+                        userCallBack.getUserByEmail(AccountEvents.GET_USER_SUCCESFULL,user);
+                    }
                 }
+
 
             }
 

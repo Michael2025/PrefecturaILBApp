@@ -33,6 +33,7 @@ public class MaestrosAdapter extends RecyclerView.Adapter <MaestrosAdapter.ViewH
         this.maestros = maestros;
     }
 
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,6 +45,7 @@ public class MaestrosAdapter extends RecyclerView.Adapter <MaestrosAdapter.ViewH
     @Override
     public void onBindViewHolder(@NonNull MaestrosAdapter.ViewHolder holder, int position) {
         final Maestro maestro = maestros.get(position);
+        //holder.setOnClickListener(listener);
         holder.tv_name.setText(maestro.getNombre());
         holder.civ_photo.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_account_circle));
         //holder.civ_photo.setImageURI(maestro.getImagenUrl());
@@ -66,6 +68,9 @@ public class MaestrosAdapter extends RecyclerView.Adapter <MaestrosAdapter.ViewH
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+        }
+        void setOnClickListener(OnItemClickListener listener){
+            listener.onItemClicked();
         }
     }
 }

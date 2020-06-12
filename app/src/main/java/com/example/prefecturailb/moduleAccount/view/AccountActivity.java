@@ -6,15 +6,14 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.prefecturailb.R;
 import com.example.prefecturailb.common.pojo.Maestro;
 import com.example.prefecturailb.common.pojo.User;
@@ -24,6 +23,7 @@ import com.example.prefecturailb.moduleAccount.adapters.MaestrosAdapter;
 import com.example.prefecturailb.moduleAccount.adapters.OnItemClickListener;
 import com.example.prefecturailb.moduleAccount.utils.Constants;
 import com.example.prefecturailb.moduleLogin.view.MainActivity;
+import com.example.prefecturailb.moduleMateria.view.MateriaActivity;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.google.zxing.integration.android.IntentIntegrator;
 
@@ -32,10 +32,9 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-//Franku estuvo aquí
 
 /**
- * @author Jay Vega
+ * @author Jay Vega, Francisco Briseño, Jacqueline Ramirez.
  */
 public class AccountActivity extends AppCompatActivity implements AccountView, OnItemClickListener {
     @BindView(R.id.toolbar)
@@ -77,7 +76,10 @@ public class AccountActivity extends AppCompatActivity implements AccountView, O
     //Método de la interface OnItemClickListener
     @Override
     public void onItemClicked() {
-        //Intent intent = new Intent(AccountActivity.this, ActivityMaestro);
+        Intent intent = new Intent(AccountActivity.this, MateriaActivity.class);
+        //intent.putExtra(User.EMAIL,);
+        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -85,12 +87,7 @@ public class AccountActivity extends AppCompatActivity implements AccountView, O
         maestrosAdapter.setMaestros(maestros);
     }
 
-    @Override
-    public void onGetUserInfo(User user) {
-        /*user.getEmail();
-        user.getName();
-        user.getType();*/// TODO: 05/06/2020 Guardar en alguna parte estos datos. 
-    }
+
 
     @Override
     protected void onPause() {
@@ -124,6 +121,12 @@ public class AccountActivity extends AppCompatActivity implements AccountView, O
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         mPresenter.onPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mPresenter.onResult(requestCode,resultCode,data);
     }
 
     private void checkPermissionsToApp(String permissionStr, int requestPermission) {
